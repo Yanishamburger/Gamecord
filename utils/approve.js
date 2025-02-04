@@ -58,7 +58,7 @@ module.exports = class Approve extends events {
       })
 
       collector.on('end', async (_, reason) => {
-        if (reason === 'messageDelete') return
+        if (reason === 'messageDelete' || reason === 'channelDelete') return;
         if (reason === 'accept') return resolve(msg);
 
         const embed = new EmbedBuilder()
